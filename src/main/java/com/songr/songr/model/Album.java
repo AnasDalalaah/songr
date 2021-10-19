@@ -3,12 +3,12 @@ package com.songr.songr.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Album")
+//@Table(name = "Album")
 
 public class Album {
         @Id
  @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    //@Column(name = "id", nullable = false)
     private Long id;
     private String title;
     private String artist;
@@ -16,19 +16,17 @@ public class Album {
     private int length;
     private String imageUrl;
 
+@OneToMany(mappedBy ="Albums")
+    private List<Song> songs;
 
-    public Album(){}
-    
-    public Album(String title, String artist, int songCount, int length, String imageUrl) {
-        this.title = title;
-        this.artist = artist;
-        this.songCount = songCount;
-        this.length = length;
-        this.imageUrl = imageUrl;
-    }
-public Long getId() {
+
+ public int getId() {
         return id;
-}
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getTitle() {
         return title;
     }
@@ -66,6 +64,16 @@ public Long getId() {
     }
 
     public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+    
+    public Album(){}
+    
+    public Album(String title, String artist, int songCount, int length, String imageUrl) {
+        this.title = title;
+        this.artist = artist;
+        this.songCount = songCount;
+        this.length = length;
         this.imageUrl = imageUrl;
     }
 }

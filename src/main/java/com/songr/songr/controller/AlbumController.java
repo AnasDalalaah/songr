@@ -41,11 +41,9 @@ public String getAlbum(Model model){
     }
 
     @PostMapping("/addAlbum")
-    public RedirectView  addFormData (@RequestParam("title") String title ,@RequestParam ("artist") String artist,
-                                      @RequestParam("songCount") int songCount,
-                                      @RequestParam("length")int length ,@RequestParam("imageUrl") String imageUrl){
-      Album album = new Album(title , artist , songCount ,length , imageUrl);
-        albumsRepository.save(album);
-        return new RedirectView("/albums");
-    }
+public RedirectView  addFormData (@ModelAttribute Albums album , Model model){
+    model.addAttribute("album" , album);
+    albumsRepository.save(album);
+    return new RedirectView("/albums");
+}
 }

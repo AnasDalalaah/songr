@@ -1,0 +1,14 @@
+body {
+    background-color: #2a2e3f;
+    height: 100vh;
+    color: white;
+    font-size: 30px;
+    margin: 50px;
+}
+
+.songs {
+    border: 2px solid black;
+    width: 20%;
+    padding: 45px;
+    border-radius: 30%;
+}
