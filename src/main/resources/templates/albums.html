@@ -9,6 +9,20 @@
 <h1 class="title">
   Ihre besten Alben
 </h1>
+<form action="#" th:action="@{/addAlbum}" method="post">
+
+  <p>Artist </p><input type="text" name="Artist"/></br>
+
+  <p>Title</p><input type="text" name="Title"/></br>
+  <p>Number of Songs</p><input type="text" name="songCount"/></br>
+  <p>length</p><input type="text" name="length"/></br>
+  <p>IMG</p><input type="text" name="imageUrl"/></br>
+
+
+  <button type="submit">Submit Your Choess</button>
+
+</form>
+</div>
 <main>
   <div th:each=" album : ${Albums}" class="albums">
     <p> Artist  : <span th:text ="${album.artist }"></span></p>
