@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Album</title>
+  <link rel="stylesheet" href="albums.css" />
+</head>
+<body>
+<h1 class="title">
+  Ihre besten Alben
+</h1>
+<main>
+  <div th:each=" album : ${Albums}" class="albums">
+    <p> Artist  : <span th:text ="${album.artist }"></span></p>
+    <p> Title : <span th:text ="${album.title}"></span></p>
+      <p> Number of Songs : <span th:text ="${album.songCount}"></span></p>
+      <p> Length  : <span th:text ="${album.length }"></span></p>
+    <img th:src="${album.imageUrl}" />
+  </div>
+</main>
+
+</body>
+</html>
